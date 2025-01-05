@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="commons/all-head-links :: head">
+
+</head>
+
+<body>
+    <div th:replace="my-navbar :: div"></div>
+    <div class="container">
+
+        <div class="w-50 mx-auto mt-5 listing-form">
+            <form class="row " th:object="${listing}" method="post" th:action="@{/listings}">
+                <div class="mb-4 col-12 ">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" class="form-control" th:field="*{title}" placeholder="Goa, Calungate">
+                </div>
+
+                <div class="mb-4 col-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" class="form-control" placeholder="Best sunset view in Goa, Calungate"
+                        th:field="*{description}"></textarea>
+                </div>
+                <div class="mb-4 col-sm-12 col-md-6 ">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" id="price" class="form-control" th:field="*{price}" placeholder="25000">
+                </div>
+                <div class="mb-4 col-sm-12 col-md-6 ">
+                    <label for="image-url" class="form-label">Image URL</label>
+                    <input type="text" id="image-url" class="form-control" placeholder="https://tinyurl.com/3y7sm2x3"
+                        th:field="*{imageUrl}">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 save-btn"><i class="fa-regular fa-bookmark"></i>
+                    Save</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+    <div th:replace="commons/all-js-links :: div"></div>
+
+</body>
+
+</html>
