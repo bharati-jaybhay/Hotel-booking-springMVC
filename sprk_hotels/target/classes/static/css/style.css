@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink-color: #ff385c;
+  --dark-pink-color: #e00b41;
+}
+
+/* Listing form */
+.listing-form {
+  width: 60% !important;
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.708);
+  padding: 3.5em;
+  border-radius: 30px;
+}
+
+.save-btn {
+  border: var(--pink-color);
+  width: 30% !important;
+  font-weight: normal;
+  margin-left: 1em;
+  background-color: var(--pink-color) !important;
+  transition: all 0.25s;
+}
+
+.save-btn:hover {
+  background-color: var(--dark-pink-color) !important;
+  font-weight: bold;
+}
