@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+:root {
+    --pink-color: #ff385c;
+    --dark-pink-color: #e00b41;
+}
+
+/* Listing form */
+.listing-form {
+    width: 60% !important;
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.708);
+    padding: 3.5em;
+    border-radius: 30px;
+}
+
+.save-btn {
+    border: var(--pink-color);
+    width: 30% !important;
+    font-weight: normal;
+    margin-left: 1em;
+    background-color: var(--pink-color) !important;
+    transition: all 0.25s;
+}
+
+.save-btn:hover {
+    background-color: var(--dark-pink-color) !important;
+    font-weight: bold;
+}
+
+/*Cards*/
+div.card {
+    border: none;
+}
+
+img.card-img-top {
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+    height: 20rem;
+}
+
+div.card-body {
+    padding: 0;
+}
+
+.listing-link {
+    text-decoration: none !important;
+
+}
+
+div.card-img-overlay {
+    opacity: 0;
+}
+
+div.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: #ffffff;
+}
+
+/*Show listing page*/
+.listing-img{
+    width: 55%;
+    border-radius: 25px;
+}
+
+.edit-btn {
+    border: var(--pink-color);
+    /*width: 30% !important;*/
+    font-weight: normal;
+    margin-left: 1em;
+    background-color: var(--pink-color) !important;
+    transition: all 0.25s;
+}
+
+.edit-btn:hover {
+    background-color: var(--dark-pink-color) !important;
+
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="commons/all-head-links :: head">
+
+</head>
+
+<body>
+<div th:replace="my-navbar :: div"></div>
+<div class="container">
+
+  <div class="w-50 mx-auto mt-5 listing-form">
+
+    <div class="alert alert-success w-75 mx-auto mb-3" role="alert" th:if="${successMessage}" th:text="${successMessage}"></div>
+
+
+    <form class="row " method="post" th:action="@{/authenticateUser}">
+      <div class="mb-4 col-12 ">
+        <label for="username" class="form-label">Username / Email</label>
+        <input type="text" id="username" class="form-control" name="username" placeholder="username/email">
+
+      </div>
+
+      <div class="mb-4 col-12">
+        <label for="password" class="form-label">Password</label>
+        <input type="text" id="password" class="form-control" name="password" placeholder="password">
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3 save-btn">
+        Login</button>
+    </form>
+
+  </div>
+</div>
+
+
+<div th:replace="commons/all-js-links :: div"></div>
+
+</body>
+
+</html>
