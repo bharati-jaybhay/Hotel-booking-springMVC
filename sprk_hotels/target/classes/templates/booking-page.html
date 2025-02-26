@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="commons/all-head-links :: head"></head>
+
+<body>
+<div th:replace="navbar :: div"></div>
+
+<div class="container mt-5">
+  <h2>Payment for <span th:text="${listing.title}"></span></h2>
+  <p>Price: <strong th:text="${listing.price}"></strong> per night</p>
+
+  <form th:action="@{/process-payment}" method="post">
+    <input type="hidden" name="listingId" th:value="${listing.id}">
+
+    <label>Card Number:</label>
+    <input type="text" class="form-control" name="cardNumber" required>
+
+    <label>Expiration Date:</label>
+    <input type="text" class="form-control" name="expiryDate" required>
+
+    <label>CVV:</label>
+    <input type="text" class="form-control" name="cvv" required>
+
+    <button type="submit" class="btn btn-success mt-3">Proceed to Payment</button>
+  </form>
+</div>
+
+<div th:replace="commons/all-js-links :: div"></div>
+</body>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  function payNow() {
+      fetch('/create-order?amount=500')
+          .then(response => response.json())
+          .then(order => {
+              var options = {
+                  "key": "your_key_id",
+                  "amount": order.amount,
+                  "currency": "INR",
+                  "name": "Hotel Booking",
+                  "description": "Payment for booking",
+                  "order_id": order.id,
+                  "handler": function(response) {
+                      window.location.href = "/booking-success";
+                  }
+              };
+              var rzp1 = new Razorpay(options);
+              rzp1.open();
+          });
+  }
+</script>
+
+<button onclick="payNow()" class="btn btn-success mt-3">Pay with Razorpay</button>
+
+</html>
